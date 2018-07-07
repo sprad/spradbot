@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'dotenv'
+
+require 'spradbot'
+
+Dotenv.load
+
+Spradbot::Server.run
