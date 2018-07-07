@@ -1,6 +1,7 @@
 require 'forecast_io'
 
 require 'spradbot/configuration'
+require 'spradbot/command_parser'
 require 'spradbot/weather_retriever'
 
 module Spradbot
