@@ -1,4 +1,9 @@
-require 'bundler/setup'
+require 'dotenv'
+require 'vcr'
+require 'webmock'
+
+Dotenv.load
+
 require 'spradbot'
 
 RSpec.configure do |config|
@@ -10,5 +15,19 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+end
+
+VCR.configure do |config|
+  config.allow_http_connections_when_no_cassette = true
+  config.ignore_localhost = true
+  config.cassette_library_dir = 'spec/vcr_cassettes'
+  config.hook_into :webmock
+
+  %w[
+    DARKSKY_TOKEN
+    SLACK_BOT_TOKEN
+  ].each do |token|
+    config.filter_sensitive_data("<#{token}>") { ENV[token] }
   end
 end

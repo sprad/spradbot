@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
+require 'dotenv'
+
+Dotenv.load
+
 require 'spradbot'
 
 # You can add fixtures and/or initialization code here to make experimenting
