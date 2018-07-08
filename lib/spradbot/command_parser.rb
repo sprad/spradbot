@@ -3,12 +3,10 @@ module Spradbot
     def execute(input)
       command = input.downcase
 
-      if command == 'weather now'
+      if command.include?('weather now')
         WeatherRetriever.new.todays_weather
-      elsif command == 'weather tomorrow'
+      elsif command.include?('weather tomorrow')
         WeatherRetriever.new.tomorrows_weather
-      else
-        "Sorry, I don't know how to help."
       end
     end
   end

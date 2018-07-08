@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
 
-require 'bundler/setup'
-require 'dotenv'
+require 'optparse'
 
-require 'spradbot'
+options = {}
+OptionParser.new do |opt|
+  opt.on('--env ENVIRONMENT') { |o| options[:env] = o }
+end.parse!
 
-Dotenv.load
+# Load environment variables from .env in development mode (default)
+# Otherwise, assume environment variables are properly set.
+require 'dotenv/load' if options[:env].nil?
 
-Spradbot::Server.run
+system 'bundle exec rake start'

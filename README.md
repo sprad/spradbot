@@ -3,19 +3,9 @@
 ### Requirements
 
 - Respond to two commands triggered upon mention. "Weather now" and "Weather tomorrow".  They do what you'd expect.
+- Weather can be hard-coded for a specific location, i.e. New York, NY
 - When the weather is going to be significantly different from yesterday, let @channel know in the morning.
 - One embellishment of your choice. Determine a feature you think this bot should have, and implement it.
-
-### Embelishment
-
-Icon
-
-- forecast.currently.icon
-- forecast.daily.data[1].icon
-
-### Durability
-
-- Flag: darksky-unavailable
 
 ## Installation
 
@@ -32,10 +22,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install spradbot
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 

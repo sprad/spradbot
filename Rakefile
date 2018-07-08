@@ -1,11 +1,8 @@
 require 'bundler/gem_tasks'
-require 'dotenv'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 
 require 'spradbot'
-
-Dotenv.load
 
 task default: :verify
 
@@ -29,5 +26,13 @@ unless Rake::Task.task_defined?(:verify)
       puts "\n== #{message} =="
       Rake::Task[command].invoke
     end
+  end
+end
+
+unless Rake::Task.task_defined?(:start)
+  desc 'Start Spradbot'
+  task :start do
+    puts '== Running =='
+    Spradbot::Server.start
   end
 end

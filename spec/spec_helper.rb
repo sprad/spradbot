@@ -1,8 +1,6 @@
-require 'dotenv'
+require 'dotenv/load'
 require 'vcr'
 require 'webmock'
-
-Dotenv.load
 
 require 'spradbot'
 

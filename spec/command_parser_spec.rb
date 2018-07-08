@@ -22,9 +22,8 @@ RSpec.describe Spradbot::CommandParser do
       end
     end
 
-    it "provides a default response when the input isn't understood" do
-      expect(subject.execute('weather purple'))
-        .to eq("Sorry, I don't know how to help.")
+    it "doesn't respond when the input isn't understood" do
+      expect(subject.execute('weather purple')).to be_nil
     end
   end
 end
